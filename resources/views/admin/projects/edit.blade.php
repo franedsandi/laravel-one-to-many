@@ -27,6 +27,17 @@
             <img id="thumb" width="150px" src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}" onerror="this.src='/img/placeholder.png'">
         @endif
     </div>
+    <div class="mb-3">
+        <label for="type_id" class="form-label">Project Type</label>
+        <select class="form-control" id="type_id" name="type_id">
+            <option value="">Select Type</option>
+            @foreach ($types as $type)
+                <option value="{{ $type->id }}" {{ $project->type_id == $type->id ? 'selected' : '' }}>
+                    {{ $type->name }}
+                </option>
+            @endforeach
+        </select>
+    </div>
 
     <div class="d-flex gap-2 mt-2">
         <button type="submit" class="btn btn-warning"> Submit</button>

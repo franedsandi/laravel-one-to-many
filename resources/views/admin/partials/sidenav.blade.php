@@ -10,6 +10,9 @@
             <li>
                 <a href="{{ route('admin.technologies.index')}}">Technologies list</a>
             </li>
+            <li>
+                <a href="{{ route('admin.type/project')}}">Projects by Type list </a>
+            </li>
         </ul>
     </nav>
 </aside>

@@ -21,6 +21,10 @@
                             <p>{{ $project->image_original_name }}</p>
                         </div>
                     @endif
+                    @if ($project->type)
+                        <p>Type: {{ $project->type->name }}</p>
+                    @endif
+
                     <p class="card-text"><span>Publication Date: </span>{{ $project->publication_date }}</p>
                     <p class="card-text">{{ $project->description }}</p>
                     <div class="d-flex  justify-content-center gap-2">
@@ -32,8 +36,6 @@
 
         </div>
         <a class="btn btn-light fw-bold" href="{{ route('admin.projects.index')}}"><i class="fa-solid fa-arrow-left"></i></a>
-
 </div>
-
 
 @endsection

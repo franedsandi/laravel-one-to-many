@@ -16,7 +16,7 @@
     <div class="main-wrapper d-flex">
         @include('admin.partials.sidenav')
         <div class="side-wrapper">
-            <div class="container-cm">            
+            <div class="container-cm py-5">
                 @yield('content')
             </div>
         </div>

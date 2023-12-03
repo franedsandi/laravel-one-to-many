@@ -13,7 +13,7 @@ class Project extends Model
     public function type(){
         return $this->belongsTo(Type::class);
     }
-    
+
     protected $fillable = [
         'title',
         'slug',
@@ -21,6 +21,7 @@ class Project extends Model
         'publication_date',
         'image',
         'image_original_name',
+        'type_id'
     ];
 
     public static function generateSlug($title){

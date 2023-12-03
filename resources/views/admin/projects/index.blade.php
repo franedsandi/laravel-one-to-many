@@ -42,9 +42,4 @@
         </tbody>
     </table>
     {{ $projects->links()}}
-
-
-
-
-
 @endsection

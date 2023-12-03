@@ -36,6 +36,21 @@
             onchange="showImage(event)" value="{{old('image')}}">
             <img id="thumb" width="150" onerror="this.src='/img/placeholder.png'"  src="{{ asset('storage/' . $project?->image) }}" />
         </div>
+        <div class="mb-3">
+            <label for="type" class="form-label">Project Type</label>
+            <select name="" id=""></select>
+        </div>
+        <div class="mb-3">
+            <label for="type_id" class="form-label">Project Type</label>
+            <select class="form-control" id="type_id" name="type_id">
+                <option value="">Select Type</option>
+                @foreach ($types as $type)
+                    <option value="{{ $type->id }}" {{ old('type_id') == $type->id ? 'selected' : '' }}>
+                        {{ $type->name }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
 
         <div class="d-flex gap-2 mt-2">
             <button type="submit" class="btn btn-warning"> Submit</button>
