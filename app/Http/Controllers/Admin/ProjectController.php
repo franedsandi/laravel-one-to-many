@@ -30,7 +30,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create');
+        $project = new Project();
+        return view('admin.projects.create', compact('project'));
     }
 
     /**
@@ -43,14 +44,14 @@ class ProjectController extends Controller
     {
         $form_data = $request->all();
         $form_data['slug'] = Project::generateSlug($form_data['title']);
-    
+
         if (array_key_exists('image', $form_data)) {
             $form_data['image_original_name'] = $request->file('image')->getClientOriginalName();
             $form_data['image'] = Storage::put('uploads', $form_data['image']);
         }
-    
+
         $new_project = Project::create($form_data);
-    
+
         return redirect()->route('admin.projects.show', $new_project->id);
     }
     /**
@@ -85,7 +86,7 @@ class ProjectController extends Controller
     public function update(ProjectRequest $request, Project $project)
     {
         $form_data = $request->all();
-    
+
         if ($project->title === $form_data['title']) {
             $form_data['slug'] = $project->slug;
         } else {
@@ -99,9 +100,9 @@ class ProjectController extends Controller
             $form_data['image'] = Storage::put('uploads', $form_data['image']);
         }
 
-    
+
         $project->update($form_data);
-    
+
         return redirect()->route('admin.projects.show', ['project' => $project->id])->with('updated', "The project $project->title have been updated");
     }
 

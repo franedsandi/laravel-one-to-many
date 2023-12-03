@@ -13,7 +13,7 @@
             <p class="text-danger">{{$message}}</p>
             @enderror
         </div>
-    
+
         <div class="mb-3">
             <label for="description" class="form-label">Project Description</label>
             <textarea type="text" class="form-control" id="description" name="description" rows="3" >{{old('description')}}
@@ -31,9 +31,11 @@
         </div>
         <div class="mb-3">
             <label for="image" class="form-label">Project Picture</label>
-            <input type="file" class="form-control" id="image" name="image" value="{{old('image')}}">
+            <input type="file" class="form-control" id="image" name="image"
+            onchange="showImage(event)" value="{{old('image')}}">
+            <img id="thumb" width="150" onerror="this.src='/img/placeholder.png'"  src="{{ asset('storage/' . $project?->image) }}" />
         </div>
-    
+
         <div class="d-flex gap-2 mt-2">
             <button type="submit" class="btn btn-warning"> Submit</button>
             <button type="reset" class="btn btn-danger"> Reset</button>
@@ -41,4 +43,10 @@
     </form>
 
 </div>
+<script>
+    function showImage(event){
+        const thumb = document.getElementById('thumb');
+        thumb.src = URL.createObjectURL(event.target.files[0]);
+    }
+</script>
 @endsection
