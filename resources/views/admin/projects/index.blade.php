@@ -15,9 +15,10 @@
     @endif
     <table class="table table-dark">
         <thead>
-            <tr>
+            <tr class="text-center">
                 <th scope="col">id</th>
                 <th scope="col">Title</th>
+                <th scope="col">Type</th>
                 <th scope="col">Description</th>
                 <th scope="col">Actions</th>
             </tr>
@@ -27,6 +28,7 @@
             <tr>
                 <th>{{ $project->id }}</th>
                 <td>{{ $project->title }}</td>
+                <td>{{ $project->type?->name ?? '-' }}</td>
                 <td>{{ $project->description }}</td>
                 <td>
                     <div class="d-flex gap-2">
