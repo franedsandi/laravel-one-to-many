@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 @section('content')
+
+<div class="container py-5">
 <h1>Modify the information of the project {{$project->title}}</h1>
 
 <form action="{{ route('admin.projects.update', $project) }}" method="POST" enctype="multipart/form-data">
@@ -20,15 +22,22 @@
     </div>
     <div class="mb-3">
         <label for="image" class="form-label">Project Picture</label>
-        <input type="file" class="form-control" id="image" name="image">
+        <input type="file" class="form-control" id="image" name="image" onchange="showImage(event)">
         @if ($project)
-            <img width="150px" src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}">
+            <img id="thumb" width="150px" src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}" onerror="this.src='/img/placeholder.png'">
         @endif
-        
     </div>
+
     <div class="d-flex gap-2 mt-2">
         <button type="submit" class="btn btn-warning"> Submit</button>
         <button type="reset" class="btn btn-danger"> Reset</button>
     </div>
 </form>
+</div>
+<script>
+    function showImage(event){
+        const thumb = document.getElementById('thumb');
+        thumb.src = URL.createObjectURL(event.target.files[0]);
+    }
+</script>
 @endsection

@@ -4,6 +4,7 @@
 @section('content')
 
 <div class="container py-5">
+    <h1>Create a new project display{{$project->title}}</h1>
     <form action="{{ route('admin.projects.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="mb-3">

@@ -13,12 +13,14 @@
         @endif
         <div class="card mb-5" style="width: 100%;">
             <div class="card">
-                <div class="card-body">  
+                <div class="card-body">
                     <h5 class="card-title">{{ $project->title}}</h5>
+                    @if ($project->image)
                         <div class="image">
                             <img class="img-fluid" width="300px" src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}">
                             <p>{{ $project->image_original_name }}</p>
                         </div>
+                    @endif
                     <p class="card-text"><span>Publication Date: </span>{{ $project->publication_date }}</p>
                     <p class="card-text">{{ $project->description }}</p>
                     <div class="d-flex  justify-content-center gap-2">
