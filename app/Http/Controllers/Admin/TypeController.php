@@ -17,7 +17,7 @@ class TypeController extends Controller
     public function index()
     {
         $types = Type::all();
-        return view('admin.type.index', compact('types'));
+        return view('admin.types.index-edit-create', compact('types'));
     }
     public function typeProject(){
         $types = Type::all();
@@ -28,7 +28,7 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -36,7 +36,7 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**

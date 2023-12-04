@@ -13,6 +13,9 @@
             <li>
                 <a href="{{ route('admin.type/project')}}">Projects by Type list </a>
             </li>
+            <li>
+                <a href="{{ route('admin.types.index')}}">Type List </a>
+            </li>
         </ul>
     </nav>
 </aside>
